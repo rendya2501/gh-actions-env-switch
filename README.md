@@ -117,3 +117,8 @@ jobs:
           echo "EXPORTED_COUNT is" $EXPORTED_COUNT
           echo "EXPORTED_COUNT is" {{ $EXPORTED_COUNT }}
 ```
+
+## 結果
+
+![image](https://github.com/user-attachments/assets/ffe2ff72-fe08-4257-8102-35ffc3fbfee0)
+
