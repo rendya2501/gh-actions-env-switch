@@ -16,4 +16,4 @@ using (var writer = new StreamWriter(githubEnvPath, true))
     writer.WriteLine($"EXPORTED_COUNT={exportedCount}");
 }
 
-Console.WriteLine($"HOGE_FUGA={exportedCount} >> $GITHUB_ENV");
+Console.WriteLine($"echo \"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
