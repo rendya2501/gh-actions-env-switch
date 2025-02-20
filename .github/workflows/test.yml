@@ -19,6 +19,7 @@ jobs:
       - name: Run script
         run: dotnet run --project ./src/sample.csproj
 
+      # 変数がどのように出力されるのかテスト
       - name: Check exported count
         run: | 
           echo "EXPORTED_COUNT is $EXPORTED_COUNT"
@@ -29,14 +30,17 @@ jobs:
         # echo "EXPORTED_COUNT is ${{ EXPORTED_COUNT }}"
         # echo "EXPORTED_COUNT is" ${{ EXPORTED_COUNT }}
 
+      # $EXPORTED_COUNTが０の場合に実行される処理
       - name: Echo when exported_count is 0
         if: env.EXPORTED_COUNT == '0'
         run: echo "HOGEHOGEHOGEHOGEHOGE"
 
+      # $EXPORTED_COUNTが０ではない場合に実行される処理
       - name: Echo when exported_count is not 0
         if: env.EXPORTED_COUNT != '0'
         run: echo "FUGAFUGAFUGAFUGAFUGA"
 
+      # bashのifで数値チェックによる分岐のテスト
       - name: Bash if Number Check
         run: |
           if [ $EXPORTED_COUNT == 0 ]; then
@@ -45,6 +49,7 @@ jobs:
             echo "111111111111111111111111"
           fi
 
+      # bashのifで文字列チェックによる分岐のテスト
       - name: Bash if String Check
         run: |
           if [ "$EXPORTED_COUNT" == "0" ]; then
@@ -52,3 +57,15 @@ jobs:
           else
             echo "111111111111111111111111"
           fi
+      
+      - name: ValidChange
+        run: echo "Change"
+        env:
+          EXPORTED_COUNT = 3
+
+      - name: Check exported count
+        run: | 
+          echo "EXPORTED_COUNT is $EXPORTED_COUNT"
+          echo "EXPORTED_COUNT is {{ $EXPORTED_COUNT }}"
+          echo "EXPORTED_COUNT is" $EXPORTED_COUNT
+          echo "EXPORTED_COUNT is" {{ $EXPORTED_COUNT }}
