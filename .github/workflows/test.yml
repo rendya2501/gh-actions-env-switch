@@ -58,6 +58,8 @@ jobs:
             echo "111111111111111111111111"
           fi
       
+      # 変数を変更できるかチェック
+      # ValidChangeのスコープだけなら有効であることを確認した
       - name: ValidChange
         run: | 
           echo "Changed"
@@ -68,6 +70,8 @@ jobs:
         env:
           EXPORTED_COUNT: 3
 
+      # ValidChangeでの変更が反映されているかチェック
+      # →変更が反映されないことを確認した。変更範囲はローカルのみである模様。
       - name: Check exported count
         run: | 
           echo "EXPORTED_COUNT is $EXPORTED_COUNT"
