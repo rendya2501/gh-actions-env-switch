@@ -26,7 +26,8 @@ jobs:
           echo "EXPORTED_COUNT is" $EXPORTED_COUNT
           echo "EXPORTED_COUNT is" {{ $EXPORTED_COUNT }}
           echo "EXPORTED_COUNT is  ${{ EXPORTED_COUNT}}"
-          echo "EXPORTED_COUNT is" ${{ EXPORTED_COUNT }}
+        # invalid pattern
+        # echo "EXPORTED_COUNT is" ${{ EXPORTED_COUNT }}
 
       - name: Echo when exported_count is 0
         if: env.EXPORTED_COUNT == '0'
