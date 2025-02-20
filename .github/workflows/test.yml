@@ -30,9 +30,17 @@ jobs:
         if: env.EXPORTED_COUNT != '0'
         run: echo "FUGAFUGAFUGAFUGAFUGA"
 
-      - name: Check GITHUB_ENV and write to it
+      - name: Check GITHUB_ENV and write to it 
         run: |
-          if [ "{{ $EXPORTED_COUNT }}" == 0 ]; then
+          if [ $EXPORTED_COUNT == 0 ]; then Number
+            echo "000000000000000000000000"
+          else
+            echo "111111111111111111111111"
+          fi
+
+      - name: Check GITHUB_ENV and write to it String
+        run: |
+          if [ "{{ $EXPORTED_COUNT }}" == "0" ]; then
             echo "000000000000000000000000"
           else
             echo "111111111111111111111111"
