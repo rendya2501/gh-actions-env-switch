@@ -59,7 +59,12 @@ jobs:
           fi
       
       - name: ValidChange
-        run: echo "Change"
+        run: | 
+          echo "Changed"
+          echo "EXPORTED_COUNT is $EXPORTED_COUNT"
+          echo "EXPORTED_COUNT is {{ $EXPORTED_COUNT }}"
+          echo "EXPORTED_COUNT is" $EXPORTED_COUNT
+          echo "EXPORTED_COUNT is" {{ $EXPORTED_COUNT }}
         env:
           EXPORTED_COUNT: 3
 
