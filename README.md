@@ -1,10 +1,6 @@
-# gh-actions-env-switch
-
-GitHub Actions で C# の出力を環境変数にセットし、条件分岐をテストするサンプル  
-
 ## 目的
 
-C#のコードから出力した値をGitHub Actionsで使用出来るのかチェックしたい。  
+C#のコードから出力した値をGitHub Actionsで使用出来るかチェックしたい。  
 
 ## C#コード
 
