@@ -61,7 +61,7 @@ jobs:
       - name: ValidChange
         run: echo "Change"
         env:
-          EXPORTED_COUNT = 3
+          EXPORTED_COUNT: 3
 
       - name: Check exported count
         run: | 
