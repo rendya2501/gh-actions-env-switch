@@ -25,7 +25,7 @@ jobs:
           echo "EXPORTED_COUNT is {{ $EXPORTED_COUNT }}"
           echo "EXPORTED_COUNT is" $EXPORTED_COUNT
           echo "EXPORTED_COUNT is" {{ $EXPORTED_COUNT }}
-          echo "EXPORTED_COUNT is  ${{ EXPORTED_COUNT}}"
+          echo "EXPORTED_COUNT is  ${{ EXPORTED_COUNT }}"
         # invalid pattern
         # echo "EXPORTED_COUNT is" ${{ EXPORTED_COUNT }}
 
