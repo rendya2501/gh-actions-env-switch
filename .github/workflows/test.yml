@@ -20,7 +20,7 @@ jobs:
         run: dotnet run --project ./src/sample.csproj
 
       - name: Check exported count
-        run: echo "Exported count is $EXPORTED_COUNT"
+        run: echo "Exported count is {{ $EXPORTED_COUNT }}"
 
       - name: Echo when exported_count is 0
         if: env.EXPORTED_COUNT == '0'
