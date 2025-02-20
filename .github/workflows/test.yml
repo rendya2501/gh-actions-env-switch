@@ -19,6 +19,13 @@ jobs:
       - name: Run script
         run: dotnet run --project ./src/sample.csproj
 
+      - name: Check exported count
+        run: | 
+          echo "HOGE_FUGA is $HOGE_FUGA"
+          echo "HOGE_FUGA is {{ $HOGE_FUGA }}"
+          echo "HOGE_FUGA is" $HOGE_FUGA
+          echo "HOGE_FUGA is" {{ $HOGE_FUGA }}
+
       # 変数がどのように出力されるのかテスト
       - name: Check exported count
         run: | 
