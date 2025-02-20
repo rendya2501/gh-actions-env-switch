@@ -1,0 +1,31 @@
+name: GitHub Actions Env Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test_env:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0'
+
+      - name: Run export script
+        run: dotnet run export.cs
+
+      - name: Check exported count
+        run: echo "Exported count is $EXPORTED_COUNT"
+
+      - name: Echo when exported_count is 0
+        if: env.EXPORTED_COUNT == '0'
+        run: echo "No files exported."
+
+      - name: Echo when exported_count is not 0
+        if: env.EXPORTED_COUNT != '0'
+        run: echo "Files were exported successfully!"
