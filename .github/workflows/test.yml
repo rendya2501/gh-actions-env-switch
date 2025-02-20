@@ -20,7 +20,11 @@ jobs:
         run: dotnet run --project ./src/sample.csproj
 
       - name: Check exported count
-        run: echo "EXPORTED_COUNT is $EXPORTED_COUNT"
+        run: | 
+          echo "EXPORTED_COUNT is $EXPORTED_COUNT"
+          echo "EXPORTED_COUNT is {{ $EXPORTED_COUNT }}"
+          echo "EXPORTED_COUNT is " $EXPORTED_COUNT
+          echo "EXPORTED_COUNT is " {{ $EXPORTED_COUNT }}
 
       - name: Echo when exported_count is 0
         if: env.EXPORTED_COUNT == '0'
@@ -30,7 +34,7 @@ jobs:
         if: env.EXPORTED_COUNT != '0'
         run: echo "FUGAFUGAFUGAFUGAFUGA"
 
-      - name: Check GITHUB_ENV and write to it Number
+      - name: Bash if Number Check
         run: |
           if [ $EXPORTED_COUNT == 0 ]; then
             echo "000000000000000000000000"
@@ -38,7 +42,7 @@ jobs:
             echo "111111111111111111111111"
           fi
 
-      - name: Check GITHUB_ENV and write to it String
+      - name: Bash if String Check
         run: |
           if [ "$EXPORTED_COUNT" == "0" ]; then
             echo "000000000000000000000000"
