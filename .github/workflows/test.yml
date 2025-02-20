@@ -20,12 +20,20 @@ jobs:
         run: dotnet run --project ./src/sample.csproj
 
       - name: Check exported count
-        run: echo "Exported count is {{ $EXPORTED_COUNT }}"
+        run: echo "$EXPORTED_COUNT is {{ $EXPORTED_COUNT }}"
 
       - name: Echo when exported_count is 0
         if: env.EXPORTED_COUNT == '0'
-        run: echo "No files exported."
+        run: echo "HOGEHOGEHOGEHOGEHOGE"
 
       - name: Echo when exported_count is not 0
         if: env.EXPORTED_COUNT != '0'
-        run: echo "Files were exported successfully!"
+        run: echo "FUGAFUGAFUGAFUGAFUGA"
+
+      - name: Check GITHUB_ENV and write to it
+        run: |
+          if [ "{{ $EXPORTED_COUNT }}" == 0 ]; then
+            echo "000000000000000000000000"
+          else
+            echo "111111111111111111111111"
+          fi
