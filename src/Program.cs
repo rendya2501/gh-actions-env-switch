@@ -4,8 +4,8 @@ using System.IO;
 var exportedCount = new Random().Next(0, 2); // 0 または 1 をランダムに出力
 
 // NULLチェック
-var githubEnvPath = Environment.GetEnvironmentVariable("GITHUB_ENV");
-if (githubEnvPath == null)
+var githubEnvPath = Environment.GetEnvironmentVariable("GITHUB_ENV") ?? string.Empty;
+if (string.IsNullOrEmpty(githubEnvPath))
 {
     Console.WriteLine("Environment.GetEnvironmentVariable(GITHUB_ENV) is null !!");
 }
@@ -21,4 +21,4 @@ Console.WriteLine(writeLineExportedCount);
 
 // Console.WriteLine($"echo \"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
 Console.WriteLine($"\"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
- 
+Console.WriteLine($"::set-output name=HOGE_FUGA::{exportedCount}"); 
