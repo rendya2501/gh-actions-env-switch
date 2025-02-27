@@ -12,7 +12,7 @@ if (githubEnvPath == null)
 Console.WriteLine(githubEnvPath);
 
 // GITHUB_ENV に値を書き込む
-var writeLineExportedCount = $"EXPORTED_COUNT={exportedCount}"
+var writeLineExportedCount = $"EXPORTED_COUNT={exportedCount}";
 using (var writer = new StreamWriter(githubEnvPath, true))
 {
     writer.WriteLine(writeLineExportedCount);
