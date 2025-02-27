@@ -21,4 +21,4 @@ Console.WriteLine(writeLineExportedCount);
 
 // Console.WriteLine($"echo \"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
 Console.WriteLine($"\"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
-Console.WriteLine($"::set-output name=HOGE_FUGA::{exportedCount}"); 
+// Console.WriteLine($"::set-output name=HOGE_FUGA::{exportedCount}"); 
