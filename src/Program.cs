@@ -5,18 +5,20 @@ var exportedCount = new Random().Next(0, 2); // 0 または 1 をランダムに
 
 // NULLチェック
 var githubEnvPath = Environment.GetEnvironmentVariable("GITHUB_ENV");
-Console.WriteLine(githubEnvPath);
 if (githubEnvPath == null)
 {
-    throw new Exception("Environment.GetEnvironmentVariable(GITHUB_ENV) is null !!");
+    Console.WriteLine("Environment.GetEnvironmentVariable(GITHUB_ENV) is null !!");
 }
+Console.WriteLine(githubEnvPath);
+
 // GITHUB_ENV に値を書き込む
+var writeLineExportedCount = $"EXPORTED_COUNT={exportedCount}"
 using (var writer = new StreamWriter(githubEnvPath, true))
 {
-    writer.WriteLine($"EXPORTED_COUNT={exportedCount}");
+    writer.WriteLine(writeLineExportedCount);
 }
-Console.WriteLine($"EXPORTED_COUNT={exportedCount}");
+Console.WriteLine(writeLineExportedCount);
 
 // Console.WriteLine($"echo \"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
-Console.WriteLine($"HOGE_FUGA={exportedCount} >> $GITHUB_ENV");
+Console.WriteLine($"\"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
  
