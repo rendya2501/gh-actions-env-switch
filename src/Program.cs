@@ -10,13 +10,12 @@ if (githubEnvPath == null)
 {
     throw new Exception("Environment.GetEnvironmentVariable(GITHUB_ENV) is null !!");
 }
-
-githubEnvPath = "GITHUB_ENV";
 // GITHUB_ENV に値を書き込む
 using (var writer = new StreamWriter(githubEnvPath, true))
 {
     writer.WriteLine($"EXPORTED_COUNT={exportedCount}");
 }
+Console.WriteLine($"EXPORTED_COUNT={exportedCount}");
 
 // Console.WriteLine($"echo \"HOGE_FUGA={exportedCount}\" >> $GITHUB_ENV");
 Console.WriteLine($"HOGE_FUGA={exportedCount} >> $GITHUB_ENV");
